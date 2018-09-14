@@ -1,0 +1,20 @@
+appium-android:
+  image: appium/appium
+  privileged: true
+  container_name: appium
+  volumes:
+    - /dev/bus/usb:/dev/bus/usb
+    - ~/.android:/root/.android
+    - ./app/Flipkart.apk:/root/app/Flipkart.apk
+  ports:
+    - 4723:4723
+
+gradle:
+  image: gradle
+  container_name: gradle
+  volumes:
+    - .:/home/gradle
+  command: gradle Sanity
+  links:
+    - appium-android:localhost
+  depends_on: appium-android

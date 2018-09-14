@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="steps.StartingSteps" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-07-10T13:31:32" hostname="965b3a661ec0" time="29.984">
+  <properties/>
+  <testcase name="sampleTest" classname="steps.StartingSteps" time="29.984"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

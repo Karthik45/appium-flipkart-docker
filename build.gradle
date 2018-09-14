@@ -1,0 +1,39 @@
+apply plugin: 'groovy'
+apply plugin: 'java'
+
+group 'com.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+dependencies {
+    compile group: 'io.appium', name: 'java-client', version: '6.0.0-BETA4'
+    testCompile group: 'com.jayway.awaitility', name: 'awaitility', version: '1.7.0'
+    testCompile group: 'org.testng', name: 'testng', version: '6.14.2'
+}
+
+task Sanity(type: Test) {
+    useTestNG {
+        options {
+            useDefaultListeners = true
+        }
+    }
+}
+
+task generateReport() {
+    doLast {
+        println("\nReport available on: ${reporting.baseDir}/tests/Sanity/index.html")
+    }
+}
+
+Sanity.finalizedBy(generateReport)
